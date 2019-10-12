@@ -11,12 +11,15 @@ if username == "":
 	username = randomname
 	points = 0
 	print("Your username is", username)
+	print("Assign what we will call you to ", username, " by entering what you would like to be called here. Do not use your real name as this data will be stored in a text file.")
+	name = input()
 else:
 	filename = username+".txt"
-	pointsfile = open(filename)
+	pointsfile = open("c:\\Python\\MeanUsers"+filename)
 	pointsstr = pointsfile.readline()
+	name = pointsfile.readline()
 	points = float(pointsstr)
-	print("You are starting with", points, "points!")
+	print("Welcome back ", name, "!You are starting with", points, "points!")
 inp1 = input("Enter a level from 10-100")
 if points >= int(inp1):
 	print("Please enter a level higher than", points)
@@ -28,7 +31,7 @@ while points < int(inp1):
 	r3 = random.randint(0, 10)
 	r4 = random.randint(0, 10)
 	mean = r1+r2+r3+r4/4
-	#print(mean)
+	print(mean)
 	print("Enter the mean of ", r1, ",", r2, ",", r3, "and", r4, ".")
 	umean = input()
 	try:
@@ -39,13 +42,13 @@ while points < int(inp1):
 		print("Correct")
 		points += 2
 	else:
-		print("Wrong")
+		print(name, "This is Wrong!")
 		points = points-0.7
 		wrong += 1
 	if wrong == 5:
+		print("Your session is ending as you have got too many wrong answers. Enter the code ", username, " when running this again.")
 		break
 filename = username+".txt"
-output = open(filename, "w")
-output.write(str(points))
-	
+output = open("c:\\Python\\MeanUsers"+filename, "w")
+output.write(str(points)+"\n"+name)
 input()
