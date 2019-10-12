@@ -16,7 +16,7 @@ if username == "":
 	name = input()
 else:
 	filename = username+".txt"
-	pointsfile = open("c:\\Python\\MeanUsers"+filename)
+	pointsfile = open("c:\\Python\\MeanUsers\\"+filename)
 	pointsstr = pointsfile.readline()
 	name = pointsfile.readline()
 	try:
@@ -60,6 +60,6 @@ while points < int(inp1):
 		break
 print("Your score is", points, "and you have a total of ", wrong, "wrong answers and", correct, "correct answers")
 filename = username+".txt"
-output = open("c:\\Python\\MeanUsers"+filename, "w")
+output = open("c:\\Python\\MeanUsers\\"+filename, "w")
 output.write(str(points)+"\n"+name+"\n"+str(wrong)+"\n"+str(correct))
 input()
