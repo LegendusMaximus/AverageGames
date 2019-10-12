@@ -11,7 +11,7 @@ if username == "":
 	username = randomname
 	points = 0
 	print("Your username is", username)
-	print("Assign what we will call you to ", username, " by entering what you would like to be called here. Do not use your real name as this data will be stored in a text file.")
+	print("Assign what we will call you to ", username, " by entering what you would like to be called here. Do not use anything like passwords as this data will be stored in a text file.")
 	name = input()
 else:
 	filename = username+".txt"
@@ -31,7 +31,7 @@ while points < int(inp1):
 	r3 = random.randint(0, 10)
 	r4 = random.randint(0, 10)
 	mean = r1+r2+r3+r4/4
-	print(mean)
+#	print(mean)
 	print("Enter the mean of ", r1, ",", r2, ",", r3, "and", r4, ".")
 	umean = input()
 	try:
