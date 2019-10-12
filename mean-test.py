@@ -1,6 +1,5 @@
 input()
 import random
-wrong = 0
 randomnamel = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 randomname1 = random.choice(randomnamel)
 randomname2 = random.choice(randomnamel)
@@ -10,6 +9,8 @@ username = input("Enter your username, if you don't have one press enter.")
 if username == "":
 	username = randomname
 	points = 0
+	wrong = 0
+	correct = 0
 	print("Your username is", username)
 	print("Assign what we will call you to ", username, " by entering what you would like to be called here. Do not use anything like passwords as this data will be stored in a text file.")
 	name = input()
@@ -18,6 +19,14 @@ else:
 	pointsfile = open("c:\\Python\\MeanUsers"+filename)
 	pointsstr = pointsfile.readline()
 	name = pointsfile.readline()
+	try:
+		wrong = int(pointsfile.readline())
+	except:
+		wrong = 0
+	try:
+		correct = int(pointsfile.readline())
+	except:
+		correct = 0	
 	points = float(pointsstr)
 	print("Welcome back ", name, "!You are starting with", points, "points!")
 inp1 = input("Enter a level from 10-100")
@@ -41,6 +50,7 @@ while points < int(inp1):
 	if umeanint == mean:
 		print("Correct")
 		points += 2
+		correct += 1
 	else:
 		print(name, "This is Wrong!")
 		points = points-0.7
@@ -48,7 +58,8 @@ while points < int(inp1):
 	if wrong == 5:
 		print("Your session is ending as you have got too many wrong answers. Enter the code ", username, " when running this again.")
 		break
+print("Your score is", points, "and you have a total of ", wrong, "wrong answers and", correct, "correct answers")
 filename = username+".txt"
 output = open("c:\\Python\\MeanUsers"+filename, "w")
-output.write(str(points)+"\n"+name)
+output.write(str(points)+"\n"+name+"\n"+str(wrong)+"\n"+str(correct))
 input()
