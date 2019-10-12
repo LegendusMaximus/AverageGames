@@ -31,7 +31,6 @@ while points < int(inp1):
 	r3 = random.randint(0, 10)
 	r4 = random.randint(0, 10)
 	mean = r1+r2+r3+r4/4
-#	print(mean)
 	print("Enter the mean of ", r1, ",", r2, ",", r3, "and", r4, ".")
 	umean = input()
 	try:
