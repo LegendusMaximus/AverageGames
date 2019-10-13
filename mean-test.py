@@ -22,8 +22,15 @@ while play == True:
 		pointsfile = open("c:\\Python\\MeanUsers\\"+filename)
 		pointsstr = pointsfile.readline()
 		name = pointsfile.readline()
-		wrong = int(pointsfile.readline())
-		correct = int(pointsfile.readline())
+		try:
+			wrong = int(pointsfile.readline())
+		except:
+			wrong = 0
+		try:
+			correct = int(pointsfile.readline())
+		except:
+			correct = 0
+			correct = 0
 		points = float(pointsstr)
 		print("Welcome back ", name, "!You are starting with", points, "points!")
 	inp1 = input("Enter a level from 10-100")
