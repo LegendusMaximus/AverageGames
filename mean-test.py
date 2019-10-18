@@ -1,4 +1,5 @@
 input()
+wrong5 = 0
 import random
 username = input("Enter your username, if you don't have one press enter.")
 
@@ -59,7 +60,9 @@ while play == True:
 			print(name, "This is Wrong!")
 			points = points-0.7
 			wrong += 1
-		if wrong == 5:
+			wrong5 += 1
+		if wrong5 == 5:
+			wrong5 = 0
 			print("Your session is ending as you have got too many wrong answers. Enter the code ", username, " when running this again.")
 			break
 	print("Your score is", points, "and you have a total of ", wrong, "wrong answers and", correct, "correct answers. Enter the code", username, "to start where you left off. \n Would you like to select another level? Enter yes or no")
