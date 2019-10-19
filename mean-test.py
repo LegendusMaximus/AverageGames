@@ -15,20 +15,23 @@ while play == True:
 		points = 0
 		wrong = 0
 		correct = 0
+		wrongfilename = "c:\\Python\\MeanUsers\\"+username+"_totals.txt"
 		print("Your username is", username)
 		print("Assign what we will call you to ", username, " by entering what you would like to be called here. Do not use anything like passwords as this data will be stored in a text file.")
 		name = input()
 	else:
+		wrongfilename = "c:\\Python\\MeanUsers\\"+username+"_totals.txt"
 		filename = username+".txt"
 		pointsfile = open("c:\\Python\\MeanUsers\\"+filename)
 		pointsstr = pointsfile.readline()
 		name = pointsfile.readline()
+		readtotals = open(filename, "w")
 		try:
-			wrong = int(pointsfile.readline())
+			wrong = int(readtotals.readline())
 		except:
 			wrong = 0
 		try:
-			correct = int(pointsfile.readline())
+			correct = int(readtotals.readline())
 		except:
 			correct = 0
 			correct = 0
@@ -67,6 +70,8 @@ while play == True:
 			break
 	print("Your score is", points, "and you have a total of ", wrong, "wrong answers and", correct, "correct answers. Enter the code", username, "to start where you left off. \n Would you like to select another level? Enter yes or no")
 	filename = username+".txt"
+	savetotals = open(wrongfilename, "w")
+	savetotals.write(str(wrong)+"\n"+str(correct))
 	output = open("c:\\Python\\MeanUsers\\"+filename, "w")
 	output.write(str(points)+"\n"+name+"\n"+str(wrong)+"\n"+str(correct))
 	output.close()
