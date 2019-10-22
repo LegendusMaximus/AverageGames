@@ -1,0 +1,7 @@
+input()
+randomq = random.randint(0,100)
+randomq2 = random.randint(0,100)
+operration = ["+", "/", "*",, "-"]
+question = randomq+operation+randomq2
+print(question)
+input()
